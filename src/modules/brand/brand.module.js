@@ -2,33 +2,33 @@ import {Router} from "express";
 import {BrandController} from "./brand.controller.js";
 import {BrandService} from "./brand.service.js";
 
-const brandRouter = Router()
+const router = Router()
 
 const brandService = new BrandService()
 const brandController = new BrandController(brandService)
 
-brandRouter.post("/",
+router.post("/",
     (req, res) => {
         brandController.insert(req, res)
     })
 
-brandRouter.get("/",
+router.get("/",
     (req, res) => {
        brandController.getAll(req, res)
     })
 
 
-brandRouter.get("/:id",
+router.get("/:id",
     (req, res)=>{
         brandController.getById(req, res)
     })
 
-brandRouter.put("/:id",
+router.put("/:id",
     (req, res) => {
     brandController.update(req, res)
     })
 
-brandRouter.delete("/:id",
+router.delete("/:id",
     (req, res) => {
     brandController.delete(req, res)
     })
@@ -36,4 +36,4 @@ brandRouter.delete("/:id",
 
 
 
-export default {brandRouter}
+export default {router}

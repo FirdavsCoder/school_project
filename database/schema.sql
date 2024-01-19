@@ -18,7 +18,7 @@ create TABLE schools
     address   VARCHAR(256) DEFAULT NULL,
     latitude  numeric      default null,
     longitude numeric      default null,
-    phone     int []        DEFAULT null,
+    phone     BIGINT[]        DEFAULT null,
     brand_id  int          not null,
     constraint fk_brand_id foreign key
         (brand_id) references brands
@@ -109,4 +109,4 @@ create TABLE lessons
 alter table users
     add constraint fk_group_id foreign key (group_id) references groups (id);
 
-SELECT * FROM brands;
+
