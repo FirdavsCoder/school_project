@@ -5,3 +5,11 @@ export class UserNotFoundException extends Error {
     this.statusCode = 404;
   }
 }
+
+export class UserBadRequestException extends Error {
+  constructor(message) {
+    super(message);
+    this.statusCode = 400;
+  }
+}
+
