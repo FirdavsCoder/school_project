@@ -111,6 +111,10 @@ alter table users
 
 
 
-SELECT u.*, row_to_json(b) AS brand
-FROM users u
-         INNER JOIN brands b on b.id = u.brand_id WHERE u.id = 1;
+
+
+
+SELECT row_to_json(u) AS child, row_to_json(p) AS parent
+FROM user_parents up
+         INNER JOIN users u on u.id = up.child_id
+         INNER JOIN users p on p.id = up.parent_id;
