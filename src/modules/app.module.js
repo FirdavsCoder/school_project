@@ -5,6 +5,8 @@ import schoolModule from "./school/school.module.js";
 import user_parentModule from "./user_parents/user_parent.module.js";
 import roomModule from "./room/room.module.js";
 import subjectModule from "./subject/subject.module.js";
+import groupModule from "./group/group.module.js";
+
 
 
 const router = Router();
@@ -15,5 +17,6 @@ router.use("/school", schoolModule.router);
 router.use("/user-parent", user_parentModule.router);
 router.use("/room", roomModule.router);
 router.use("/subject", subjectModule.router);
+router.use("/group", groupModule.router);
 
 export default { router };

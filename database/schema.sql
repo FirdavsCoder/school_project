@@ -103,7 +103,6 @@ create TABLE lessons
     constraint fk_teacher_id foreign key (teacher_id) references users (id),
     constraint fk_group_id foreign key (group_id) references groups (id),
     constraint fk_subject_id foreign key (subject_id) references subjects (id)
-
 );
 
 alter table users
