@@ -1,7 +1,6 @@
 export class UserNotFoundException extends Error {
   constructor() {
-    super("user not found");
-
+    super("User Not Found");
     this.statusCode = 404;
   }
 }

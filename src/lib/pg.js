@@ -13,14 +13,14 @@ const pool = new Pool({
 
 export class Postgres {
   async fetch(SQL, ...args) {
-    const clien = await pool.connect();
+    const client = await pool.connect();
     try {
       const {
         rows: [row],
-      } = await clien.query(SQL, args);
+      } = await client.query(SQL, args);
       return row;
     } finally {
-      clien.release();
+      client.release();
     }
   }
 

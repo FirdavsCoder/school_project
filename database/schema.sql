@@ -110,3 +110,7 @@ alter table users
     add constraint fk_group_id foreign key (group_id) references groups (id);
 
 
+
+SELECT u.*, row_to_json(b) AS brand
+FROM users u
+         INNER JOIN brands b on b.id = u.brand_id WHERE u.id = 1;
