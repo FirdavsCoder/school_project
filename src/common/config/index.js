@@ -4,7 +4,7 @@ dotenv.config();
 export const config = {
   port: Number(process.env.PORT),
   jwtKey: process.env.JWT_KEY,
-  jwtExpiredIn: Number(process.env.JWT_EXPIREDIN),
+  jwtExpiredIn: process.env.JWT_EXPIREDIN,
   dbName: process.env.DB_NAME,
   dbPort: process.env.DB_PORT,
   dbHost: process.env.DB_HOST,

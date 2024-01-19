@@ -1,10 +1,9 @@
 import jwt from "jsonwebtoken";
 
-import { config } from "../common/config/index.js";
+import {config} from "../common/config/index.js";
 
 export const generateToken = (data) => {
-  const token = jwt.sign({ data, exp: config.jwtExpiredIn }, config.jwtKey);
-  return token;
+  return jwt.sign({data}, config.jwtKey, {expiresIn: config.jwtExpiredIn});
 };
 
 export const verifyToken = (token) => {
