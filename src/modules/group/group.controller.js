@@ -1,10 +1,8 @@
 import {ResData} from "../../common/resData.js";
-import {SubjectGetByIdSchema, SubjectSchema, SubjectUpdateSchema} from "./validation/subject.schema.js";
-import {SubjectException} from "./exception/subject.exception.js";
+import {GroupGetByIdSchema, GroupSchema, GroupUpdateSchema} from "./validation/group.schema.js";
+import {GroupException} from "./exception/group.exception.js";
 
-
-
-export class SubjectController {
+export class GroupController {
 	#service;
 	constructor(service) {
 		this.#service = service
@@ -13,9 +11,9 @@ export class SubjectController {
 	async insert(req, res) {
 		try {
 			const dto = req.body
-			const validatedDto = SubjectSchema.validate(dto)
+			const validatedDto = GroupSchema.validate(dto)
 			if (validatedDto.error) {
-				throw new SubjectException(validatedDto.error.message)
+				throw new GroupException(validatedDto.error.message)
 			}
 
 			const resData = await this.#service.insert(dto)
@@ -53,9 +51,9 @@ export class SubjectController {
 	async getById(req, res) {
 		try {
 			const dto = req.params
-			const validatedDto = SubjectGetByIdSchema.validate(dto)
+			const validatedDto = GroupGetByIdSchema.validate(dto)
 			if (validatedDto.error) {
-				throw new SubjectException(validatedDto.error.message)
+				throw new GroupException(validatedDto.error.message)
 			}
 			const resData = await this.#service.getById(req.params.id)
 			return res.status(resData.statusCode).json(resData)
@@ -73,13 +71,13 @@ export class SubjectController {
 
 	async update(req, res) {
 		try {
-			const validatedDtoId = SubjectGetByIdSchema.validate(req.params)
+			const validatedDtoId = GroupGetByIdSchema.validate(req.params)
 			if (validatedDtoId.error) {
-				throw new SubjectException(validatedDtoId.error.message)
+				throw new GroupException(validatedDtoId.error.message)
 			}
-			const validatedDto = SubjectUpdateSchema.validate(req.body)
+			const validatedDto = GroupUpdateSchema.validate(req.body)
 			if (validatedDto.error) {
-				throw new SubjectException(validatedDto.error.message)
+				throw new GroupException(validatedDto.error.message)
 			}
 			const resData = await this.#service.update(req.params.id, req.body)
 			return res.status(resData.statusCode).json(resData)
@@ -97,9 +95,9 @@ export class SubjectController {
 
 	async delete(req, res) {
 		try {
-			const validatedDto = SubjectGetByIdSchema.validate(req.params)
+			const validatedDto = GroupGetByIdSchema.validate(req.params)
 			if(validatedDto.error) {
-				throw new SubjectException(validatedDto.error.message)
+				throw new GroupException(validatedDto.error.message)
 			}
 			const resData = await this.#service.delete(req.params.id)
 			return res.status(resData.statusCode).json(resData)
