@@ -15,7 +15,7 @@ export class GroupRepository extends Postgres {
 	}
 
 	async update(dto) {
-		const sql = `UPDATE groups SET name = $2 WHERE id = $1 RETURNING * `
+		const sql = `UPDATE lessons SET name = $2 WHERE id = $1 RETURNING * `
 		return await this.fetch(sql, dto.id, dto.name)
 	}
 
