@@ -7,6 +7,7 @@ import roomModule from "./room/room.module.js";
 import subjectModule from "./subject/subject.module.js";
 import groupModule from "./group/group.module.js";
 import teacherSubjectModule from "./teacher_subject/teacherSubject.module.js";
+import lessonModule from "./lesson/lesson.module.js";
 
 
 
@@ -20,5 +21,6 @@ router.use("/room", roomModule.router);
 router.use("/subject", subjectModule.router);
 router.use("/group", groupModule.router);
 router.use("/teacher-subject", teacherSubjectModule.router);
+router.use("/lesson", lessonModule.router);
 
 export default { router };
